@@ -9,6 +9,10 @@ public class conteoGenes {
     private JLabel resultLabel;
 
     public conteoGenes() {
+        run();
+    }
+
+    public void run() {
         frame = new JFrame("Conteo de genes");
         frame.setSize(400, 200);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
