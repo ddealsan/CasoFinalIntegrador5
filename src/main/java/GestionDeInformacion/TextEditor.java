@@ -43,6 +43,18 @@ public class TextEditor {
         });
         buttonPanel.add(drawingToolButton);
 
+        JButton organizeButton = new JButton("Organizar Documentos");
+        organizeButton.addActionListener(e -> organizeDocuments());
+        buttonPanel.add(organizeButton);
+
+        JButton searchButton = new JButton("Búsqueda Eficiente en Textos");
+        searchButton.addActionListener(e -> searchInTexts());
+        buttonPanel.add(searchButton);
+
+        JButton dateButton = new JButton("Gestión de Fechas");
+        dateButton.addActionListener(e -> manageDates());
+        buttonPanel.add(dateButton);
+
         buttonPanel.add(Box.createVerticalGlue());
 
         JButton cancelButton = new JButton("Cancelar");
@@ -108,5 +120,17 @@ public class TextEditor {
         String text = textArea.getText();
         int wordCount = text.trim().isEmpty() ? 0 : text.trim().split("\\s+").length;
         wordCountLabel.setText("Conteo de palabras: " + wordCount);
+    }
+
+    private void organizeDocuments() {
+        // Aquí va el código para organizar alfabéticamente las líneas de un archivo de texto
+    }
+
+    private void searchInTexts() {
+        // Aquí va el código para implementar un sistema de búsqueda de palabras en archivos de texto
+    }
+
+    private void manageDates() {
+        // Aquí va el código para crear un programa que permita a los usuarios introducir y listar fechas de manera ordenada
     }
 }
