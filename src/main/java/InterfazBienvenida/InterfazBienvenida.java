@@ -1,76 +1,81 @@
 package InterfazBienvenida;
 
+
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.border.LineBorder;
 
 public class InterfazBienvenida {
     public InterfazBienvenida() {
-        // Crear la ventana
-        JFrame frame = new JFrame("Sistema Interactivo de Análisis Genómico y Organización de Datos");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
+        JFrame frame = new JFrame("Gestión de Publicaciones - Alfonso X El Sabio");
 
-        // Crear el panel principal con un BorderLayout
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.setBackground(Color.WHITE); // Cambiar el color de fondo del panel
-        frame.add(panel);
+        JButton newButton = new JButton("Crear nuevo texto".toUpperCase());
+        newButton.setFont(new Font("Arial", Font.BOLD, 20));
+        newButton.setPreferredSize(new Dimension(200, 75));
+        newButton.setBackground(new Color(0, 0, 139));
+        newButton.setForeground(Color.WHITE);
+        newButton.addActionListener(e -> new TextEditor());
 
-        // Crear el panel para el mensaje de bienvenida y la imagen
-        JPanel leftPanel = new JPanel(new BorderLayout());
-        panel.add(leftPanel, BorderLayout.WEST);
+        JButton editButton = new JButton("Editar texto existente".toUpperCase());
+        editButton.setFont(new Font("Arial", Font.BOLD, 20));
+        editButton.setPreferredSize(new Dimension(200, 75));
+        editButton.setBackground(new Color(0, 0, 139));
+        editButton.setForeground(Color.WHITE);
+        editButton.addActionListener(e -> new TextEditor2());
 
-        // Crear la etiqueta para la imagen
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\dalfo\\IdeaProjects\\CasoFinalIntegrador5\\src\\main\\resources\\Captura de pantalla 2024-04-09 184435.png"); // Reemplaza "nombreDeLaImagen.jpg" con el nombre de tu imagen
-        JLabel imageLabel = new JLabel(imageIcon);
-        leftPanel.add(imageLabel, BorderLayout.CENTER);
+        JButton compareButton = new JButton("Comparador de textos".toUpperCase());
+        compareButton.setFont(new Font("Arial", Font.BOLD, 20));
+        compareButton.setPreferredSize(new Dimension(200, 75));
+        compareButton.setBackground(new Color(0, 0, 139));
+        compareButton.setForeground(Color.WHITE);
+        compareButton.addActionListener(e -> new TextComparator());
 
-        // Crear el panel para la etiqueta de bienvenida
-        JPanel welcomePanel = new JPanel(new BorderLayout());
-        leftPanel.add(welcomePanel, BorderLayout.SOUTH);
+        JButton emailValidatorButton = new JButton("Validador de Email".toUpperCase());
+        emailValidatorButton.setFont(new Font("Arial", Font.BOLD, 20));
+        emailValidatorButton.setPreferredSize(new Dimension(200, 75));
+        emailValidatorButton.setBackground(new Color(0, 0, 139));
+        emailValidatorButton.setForeground(Color.WHITE);
+        emailValidatorButton.addActionListener(e -> new EmailValidator());
 
-        // Crear la etiqueta de bienvenida
-        JLabel welcomeLabel = new JLabel("Bienvenido al Sistema Interactivo de Análisis Genómico y Organización de Datos", SwingConstants.CENTER);
-        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // Cambiar el tamaño y el tipo de letra
-        welcomeLabel.setForeground(new Color(0, 0, 128)); // Cambiar el color de las letras
-        welcomePanel.add(welcomeLabel, BorderLayout.CENTER);
+        JButton exitButton = new JButton("Salir".toUpperCase());
+        exitButton.setFont(new Font("Arial", Font.BOLD, 20));
+        exitButton.setPreferredSize(new Dimension(200, 75));
+        exitButton.setBackground(new Color(0, 0, 139));
+        exitButton.setForeground(Color.WHITE);
+        exitButton.addActionListener(e -> System.exit(0));
 
-        // Crear el panel para los botones
         JPanel rightPanel = new JPanel(new GridLayout(6, 1));
-        panel.add(rightPanel, BorderLayout.EAST);
-
-        // Crear los botones
-        for (int i = 0; i < 4; i++) {
-            JButton button = new JButton("Botón " + (i + 1));
-            button.setFont(new Font("Arial", Font.BOLD, 15)); // Cambiar el tamaño y el tipo de letra
-            button.setPreferredSize(new Dimension(150, 50)); // Cambiar el tamaño del botón
-            button.setBackground(new Color(0, 0, 139)); // Cambiar el color de fondo del botón
-            button.setForeground(Color.WHITE); // Cambiar el color de las letras del botón
-            rightPanel.add(button);
-        }
-
-        JButton exitButton = new JButton("Salir");
-        exitButton.setFont(new Font("Arial", Font.BOLD, 15)); // Cambiar el tamaño y el tipo de letra
-        exitButton.setPreferredSize(new Dimension(150, 50)); // Cambiar el tamaño del botón
-        exitButton.setBackground(new Color(0, 0, 139)); // Cambiar el color de fondo del botón
-        exitButton.setForeground(Color.WHITE); // Cambiar el color de las letras del botón
+        rightPanel.add(newButton);
+        rightPanel.add(editButton);
+        rightPanel.add(compareButton);
+        rightPanel.add(emailValidatorButton);
         rightPanel.add(exitButton);
 
-        // Agregar un oyente de acción al botón de salida
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        ImageIcon imageIcon = new ImageIcon("C:\\Users\\dalfo\\IdeaProjects\\CasoFinalIntegrador5\\src\\main\\resources\\Captura de pantalla 2024-04-09 184435.png");
+        JLabel imageLabel = new JLabel(imageIcon);
 
-        // Crear una línea divisoria
+        JLabel welcomeLabel = new JLabel("Bienvenido al sistema de publicaciones de texto de la Universidad Alfonso X El Sabio", SwingConstants.CENTER);
+        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        welcomeLabel.setForeground(new Color(0, 0, 128));
+
+        JPanel leftPanel = new JPanel(new BorderLayout());
+        leftPanel.setBackground(Color.WHITE);
+        leftPanel.add(imageLabel, BorderLayout.NORTH);
+        leftPanel.add(welcomeLabel, BorderLayout.SOUTH);
+
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.setBackground(Color.WHITE);
+        panel.add(leftPanel, BorderLayout.CENTER);
+        panel.add(rightPanel, BorderLayout.EAST);
+
         JSeparator separator = new JSeparator(JSeparator.VERTICAL);
-        separator.setBackground(new Color(173, 216, 230)); // Cambiar el color de la línea divisoria
+        separator.setBackground(new Color(173, 216, 230));
         panel.add(separator, BorderLayout.CENTER);
 
-        // Hacer visible la ventana
+        frame.add(panel);
+        frame.setSize(800, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
 }
