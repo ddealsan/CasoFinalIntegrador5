@@ -1,81 +1,87 @@
 package InterfazBienvenida;
 
-
-
 import javax.swing.*;
-import java.awt.*;
 import javax.swing.border.LineBorder;
+import java.awt.*;
 
 public class InterfazBienvenida {
+    private JFrame frame;
+
     public InterfazBienvenida() {
-        JFrame frame = new JFrame("Gestión de Publicaciones - Alfonso X El Sabio");
+        frame = new JFrame("Gestión de Publicaciones - Alfonso X El Sabio");
 
         JButton newButton = new JButton("Crear nuevo texto".toUpperCase());
-        newButton.setFont(new Font("Arial", Font.BOLD, 20));
-        newButton.setPreferredSize(new Dimension(200, 75));
-        newButton.setBackground(new Color(0, 0, 139));
+        newButton.setPreferredSize(new Dimension(60, 25));
         newButton.setForeground(Color.WHITE);
-        newButton.addActionListener(e -> new TextEditor());
+        newButton.setBackground(Color.BLUE);
+        newButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        newButton.setFocusPainted(false);
+        newButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
 
         JButton editButton = new JButton("Editar texto existente".toUpperCase());
-        editButton.setFont(new Font("Arial", Font.BOLD, 20));
-        editButton.setPreferredSize(new Dimension(200, 75));
-        editButton.setBackground(new Color(0, 0, 139));
+        editButton.setPreferredSize(new Dimension(60, 25));
         editButton.setForeground(Color.WHITE);
-        editButton.addActionListener(e -> new TextEditor2());
+        editButton.setBackground(Color.BLUE);
+        editButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        editButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
 
         JButton compareButton = new JButton("Comparador de textos".toUpperCase());
-        compareButton.setFont(new Font("Arial", Font.BOLD, 20));
-        compareButton.setPreferredSize(new Dimension(200, 75));
-        compareButton.setBackground(new Color(0, 0, 139));
+        compareButton.setPreferredSize(new Dimension(60, 25));
         compareButton.setForeground(Color.WHITE);
-        compareButton.addActionListener(e -> new TextComparator());
+        compareButton.setBackground(Color.BLUE);
+        compareButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        compareButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
 
         JButton emailValidatorButton = new JButton("Validador de Email".toUpperCase());
-        emailValidatorButton.setFont(new Font("Arial", Font.BOLD, 20));
-        emailValidatorButton.setPreferredSize(new Dimension(200, 75));
-        emailValidatorButton.setBackground(new Color(0, 0, 139));
+        emailValidatorButton.setPreferredSize(new Dimension(60, 25));
         emailValidatorButton.setForeground(Color.WHITE);
-        emailValidatorButton.addActionListener(e -> new EmailValidator());
+        emailValidatorButton.setBackground(Color.BLUE);
+        emailValidatorButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        emailValidatorButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
 
         JButton exitButton = new JButton("Salir".toUpperCase());
-        exitButton.setFont(new Font("Arial", Font.BOLD, 20));
-        exitButton.setPreferredSize(new Dimension(200, 75));
-        exitButton.setBackground(new Color(0, 0, 139));
-        exitButton.setForeground(Color.WHITE);
+        exitButton.setPreferredSize(new Dimension(60, 25));
         exitButton.addActionListener(e -> System.exit(0));
+        exitButton.setForeground(Color.WHITE);
+        exitButton.setBackground(Color.BLUE);
+        exitButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        exitButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
 
-        JPanel rightPanel = new JPanel(new GridLayout(6, 1));
-        rightPanel.add(newButton);
-        rightPanel.add(editButton);
-        rightPanel.add(compareButton);
-        rightPanel.add(emailValidatorButton);
-        rightPanel.add(exitButton);
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(5, 1, 10, 10)); // Cambiar a 5 filas para acomodar el nuevo botón
+        buttonPanel.add(newButton);
+        buttonPanel.add(editButton);
+        buttonPanel.add(compareButton);
+        buttonPanel.add(emailValidatorButton); // Agregar el nuevo botón
+        buttonPanel.add(exitButton);
 
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\dalfo\\IdeaProjects\\CasoFinalIntegrador5\\src\\main\\resources\\Captura de pantalla 2024-04-09 184435.png");
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/FotoLogo.png"));
         JLabel imageLabel = new JLabel(imageIcon);
 
-        JLabel welcomeLabel = new JLabel("Bienvenido al sistema de publicaciones de texto de la Universidad Alfonso X El Sabio", SwingConstants.CENTER);
-        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        welcomeLabel.setForeground(new Color(0, 0, 128));
+        JLabel welcomeLabel = new JLabel("<html><div style='text-align: center;'>Bienvenido al sistema de publicaciones de texto de la Universidad Alfonso X El Sabio</div></html>");
+        welcomeLabel.setForeground(Color.BLUE);
+        welcomeLabel.setFont(new Font("Times New Roman", Font.BOLD, 45));
+        welcomeLabel.setHorizontalAlignment(JLabel.CENTER);
 
-        JPanel leftPanel = new JPanel(new BorderLayout());
-        leftPanel.setBackground(Color.WHITE);
-        leftPanel.add(imageLabel, BorderLayout.NORTH);
+        JPanel leftPanel = new JPanel();
+        leftPanel.setLayout(new BorderLayout());
+        leftPanel.add(imageLabel, BorderLayout.CENTER);
         leftPanel.add(welcomeLabel, BorderLayout.SOUTH);
+        leftPanel.setBackground(Color.WHITE);
 
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.setBackground(Color.WHITE);
-        panel.add(leftPanel, BorderLayout.CENTER);
-        panel.add(rightPanel, BorderLayout.EAST);
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, buttonPanel);
+        splitPane.setDividerSize(20);
+        splitPane.setDividerLocation(600);
+        splitPane.setEnabled(false);
+        splitPane.setForeground(new Color(0, 0, 128));
 
-        JSeparator separator = new JSeparator(JSeparator.VERTICAL);
-        separator.setBackground(new Color(173, 216, 230));
-        panel.add(separator, BorderLayout.CENTER);
-
-        frame.add(panel);
-        frame.setSize(800, 600);
+        frame.add(splitPane);
+        frame.setSize(1200, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new InterfazBienvenida();
     }
 }
