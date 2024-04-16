@@ -26,7 +26,7 @@ public class InterfazBienvenida {
         leftPanel.add(welcomeLabel, BorderLayout.NORTH);
 
         // Crear la etiqueta para la imagen
-        ImageIcon imageIcon = new ImageIcon("src/main/resources/nombreDeLaImagen.jpg"); // Reemplaza "nombreDeLaImagen.jpg" con el nombre de tu imagen
+        ImageIcon imageIcon = new ImageIcon("C:\\Users\\dalfo\\IdeaProjects\\CasoFinalIntegrador5\\src\\main\\resources\\Captura de pantalla 2024-04-09 184435.png"); // Reemplaza "nombreDeLaImagen.jpg" con el nombre de tu imagen
         JLabel imageLabel = new JLabel(imageIcon);
         leftPanel.add(imageLabel, BorderLayout.CENTER);
 
