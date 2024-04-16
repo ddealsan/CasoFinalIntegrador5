@@ -29,20 +29,6 @@ public class InterfazBienvenida {
         editButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
         editButton.addActionListener(e -> new GestionDeInformacion());
 
-        JButton compareButton = new JButton("Comparador de textos".toUpperCase());
-        compareButton.setPreferredSize(new Dimension(60, 25));
-        compareButton.setForeground(Color.WHITE);
-        compareButton.setBackground(Color.BLUE);
-        compareButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
-        compareButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
-
-        JButton emailValidatorButton = new JButton("Validador de Email".toUpperCase());
-        emailValidatorButton.setPreferredSize(new Dimension(60, 25));
-        emailValidatorButton.setForeground(Color.WHITE);
-        emailValidatorButton.setBackground(Color.BLUE);
-        emailValidatorButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
-        emailValidatorButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
-
         JButton exitButton = new JButton("Salir".toUpperCase());
         exitButton.setPreferredSize(new Dimension(60, 25));
         exitButton.addActionListener(e -> System.exit(0));
@@ -52,11 +38,9 @@ public class InterfazBienvenida {
         exitButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(5, 1, 10, 10));
+        buttonPanel.setLayout(new GridLayout(3, 1, 10, 10));
         buttonPanel.add(newButton);
         buttonPanel.add(editButton);
-        buttonPanel.add(compareButton);
-        buttonPanel.add(emailValidatorButton);
         buttonPanel.add(exitButton);
 
         ImageIcon imageIcon = new ImageIcon(getClass().getResource("/FotoLogo.png"));
