@@ -98,14 +98,12 @@ public class TextEditor {
     }
 
     private void saveFile() {
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(new File("./src/main/resources/txts"));
-        int result = fileChooser.showSaveDialog(frame);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            currentFile = fileChooser.getSelectedFile();
-            if (!currentFile.getName().endsWith(".txt")) {
-                currentFile = new File(currentFile.toString() + ".txt");
+        String fileName = JOptionPane.showInputDialog(frame, "Ingresa el nombre del archivo:");
+        if (fileName != null && !fileName.trim().isEmpty()) {
+            if (!fileName.endsWith(".txt")) {
+                fileName += ".txt";
             }
+            currentFile = new File("./src/main/resources/txts/" + fileName);
             try (FileWriter writer = new FileWriter(currentFile)) {
                 writer.write(textArea.getText());
                 JOptionPane.showMessageDialog(frame, "Archivo guardado con éxito.");
@@ -113,6 +111,8 @@ public class TextEditor {
                 JOptionPane.showMessageDialog(frame, "Error al guardar el archivo.");
                 e.printStackTrace();
             }
+        } else {
+            JOptionPane.showMessageDialog(frame, "El nombre del archivo no puede estar vacío.");
         }
     }
 
