@@ -8,7 +8,7 @@ public class InterfazBienvenida {
     private JFrame frame;
 
     public InterfazBienvenida() {
-        frame = new JFrame("Gestión de Publicaciones - Alfonso X El Sabio");
+        frame = new JFrame("Sistema Interactivo de Análisis Genómico y Organización de Datos");
 
         JButton newButton = new JButton("Crear nuevo texto".toUpperCase());
         newButton.setPreferredSize(new Dimension(60, 25));
@@ -58,7 +58,7 @@ public class InterfazBienvenida {
         ImageIcon imageIcon = new ImageIcon(getClass().getResource("/FotoLogo.png"));
         JLabel imageLabel = new JLabel(imageIcon);
 
-        JLabel welcomeLabel = new JLabel("<html><div style='text-align: center;'>Bienvenido al sistema de publicaciones de texto de la Universidad Alfonso X El Sabio</div></html>");
+        JLabel welcomeLabel = new JLabel("<html><div style='text-align: center;'>Bienvenido al Sistema Interactivo de Análisis Genómico y Organización de Datos</div></html>");
         welcomeLabel.setForeground(Color.BLUE);
         welcomeLabel.setFont(new Font("Times New Roman", Font.BOLD, 45));
         welcomeLabel.setHorizontalAlignment(JLabel.CENTER);
