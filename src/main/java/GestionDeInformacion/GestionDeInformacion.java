@@ -32,7 +32,10 @@ public class GestionDeInformacion {
         viewTextsButton.setBackground(Color.BLUE);
         viewTextsButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
         viewTextsButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
-        // Aquí puedes añadir un ActionListener para el botón "Ver Textos"
+        viewTextsButton.addActionListener(e -> {
+            VerArchivos verArchivos = new VerArchivos();
+            verArchivos.setVisible(true);
+        });
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(3, 1, 10, 10));
