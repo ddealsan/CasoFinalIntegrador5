@@ -1,5 +1,6 @@
 package InterfazBienvenida;
 
+import AnalisisGenomico.AnalisisGenomico;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -10,13 +11,14 @@ public class InterfazBienvenida {
     public InterfazBienvenida() {
         frame = new JFrame("Sistema Interactivo de Análisis Genómico y Organización de Datos");
 
-        JButton newButton = new JButton("Crear nuevo texto".toUpperCase());
+        JButton newButton = new JButton("Análisis Genómico".toUpperCase());
         newButton.setPreferredSize(new Dimension(60, 25));
         newButton.setForeground(Color.WHITE);
         newButton.setBackground(Color.BLUE);
         newButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
         newButton.setFocusPainted(false);
         newButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
+        newButton.addActionListener(e -> new AnalisisGenomico());
 
         JButton editButton = new JButton("Editar texto existente".toUpperCase());
         editButton.setPreferredSize(new Dimension(60, 25));
