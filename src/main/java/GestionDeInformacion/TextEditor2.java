@@ -21,8 +21,7 @@ public class TextEditor2 {
         frame = new JFrame("Editor de Texto");
         textArea = new JTextArea();
 
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(new File("./src/main/resources/txts")); // Establecer el directorio de los archivos creados
+        JFileChooser fileChooser = new JFileChooser("./src/main/resources/txts"); // Establecer el directorio de los archivos creados
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de texto", "txt"); // Filtro para archivos .txt
         fileChooser.setFileFilter(filter); // Aplicar el filtro al JFileChooser
         int result = fileChooser.showOpenDialog(frame);
