@@ -1,6 +1,7 @@
 package InterfazBienvenida;
 
 import AnalisisGenomico.AnalisisGenomico;
+import GestionDeInformacion.GestionDeInformacion;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -20,12 +21,13 @@ public class InterfazBienvenida {
         newButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
         newButton.addActionListener(e -> new AnalisisGenomico());
 
-        JButton editButton = new JButton("Editar texto existente".toUpperCase());
+        JButton editButton = new JButton("Gestión de Información".toUpperCase());
         editButton.setPreferredSize(new Dimension(60, 25));
         editButton.setForeground(Color.WHITE);
         editButton.setBackground(Color.BLUE);
         editButton.setFont(new Font("Times New Roman", Font.BOLD, 20));
         editButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
+        editButton.addActionListener(e -> new GestionDeInformacion());
 
         JButton compareButton = new JButton("Comparador de textos".toUpperCase());
         compareButton.setPreferredSize(new Dimension(60, 25));
@@ -50,11 +52,11 @@ public class InterfazBienvenida {
         exitButton.setBorder(new LineBorder(new Color(0, 0, 128), 3));
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(5, 1, 10, 10)); // Cambiar a 5 filas para acomodar el nuevo botón
+        buttonPanel.setLayout(new GridLayout(5, 1, 10, 10));
         buttonPanel.add(newButton);
         buttonPanel.add(editButton);
         buttonPanel.add(compareButton);
-        buttonPanel.add(emailValidatorButton); // Agregar el nuevo botón
+        buttonPanel.add(emailValidatorButton);
         buttonPanel.add(exitButton);
 
         ImageIcon imageIcon = new ImageIcon(getClass().getResource("/FotoLogo.png"));
