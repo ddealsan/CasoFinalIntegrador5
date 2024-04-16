@@ -1,6 +1,7 @@
 package InterfazBienvenida;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,25 +10,42 @@ public class InterfazBienvenida {
         // Crear la ventana
         JFrame frame = new JFrame("Sistema Interactivo de Análisis Genómico y Organización de Datos");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
+        frame.setSize(800, 600);
 
-        // Crear el panel principal
-        JPanel panel = new JPanel();
+        // Crear el panel principal con un GridLayout
+        JPanel panel = new JPanel(new GridLayout(1, 2));
         frame.add(panel);
 
+        // Crear el panel para el mensaje de bienvenida y la imagen
+        JPanel leftPanel = new JPanel(new BorderLayout());
+        panel.add(leftPanel);
+
         // Crear la etiqueta de bienvenida
-        JLabel welcomeLabel = new JLabel("Bienvenido al Sistema Interactivo de Análisis Genómico y Organización de Datos");
-        panel.add(welcomeLabel);
+        JLabel welcomeLabel = new JLabel("Bienvenido al Sistema Interactivo de Análisis Genómico y Organización de Datos", SwingConstants.CENTER);
+        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // Cambiar el tamaño y el tipo de letra
+        leftPanel.add(welcomeLabel, BorderLayout.NORTH);
+
+        // Crear la etiqueta para la imagen
+        ImageIcon imageIcon = new ImageIcon("src/main/resources/nombreDeLaImagen.jpg"); // Reemplaza "nombreDeLaImagen.jpg" con el nombre de tu imagen
+        JLabel imageLabel = new JLabel(imageIcon);
+        leftPanel.add(imageLabel, BorderLayout.CENTER);
+
+        // Crear el panel para los botones
+        JPanel rightPanel = new JPanel(new GridLayout(5, 1));
+        panel.add(rightPanel);
 
         // Crear los botones
-        JButton button1 = new JButton("Botón 1");
-        panel.add(button1);
-
-        JButton button2 = new JButton("Botón 2");
-        panel.add(button2);
+        for (int i = 0; i < 4; i++) {
+            JButton button = new JButton("Botón " + (i + 1));
+            button.setFont(new Font("Arial", Font.BOLD, 15)); // Cambiar el tamaño y el tipo de letra
+            button.setPreferredSize(new Dimension(150, 50)); // Cambiar el tamaño del botón
+            rightPanel.add(button);
+        }
 
         JButton exitButton = new JButton("Salir");
-        panel.add(exitButton);
+        exitButton.setFont(new Font("Arial", Font.BOLD, 15)); // Cambiar el tamaño y el tipo de letra
+        exitButton.setPreferredSize(new Dimension(150, 50)); // Cambiar el tamaño del botón
+        rightPanel.add(exitButton);
 
         // Agregar un oyente de acción al botón de salida
         exitButton.addActionListener(new ActionListener() {
