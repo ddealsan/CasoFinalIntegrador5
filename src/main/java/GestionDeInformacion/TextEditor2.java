@@ -35,7 +35,7 @@ public class TextEditor2 {
             }
         }
 
-        JPanel buttonPanel = new JPanel(new GridLayout(6, 1, 5, 5)); // GridLayout con 6 filas, 1 columna y 5 de separación horizontal y vertical
+        JPanel buttonPanel = new JPanel(new GridLayout(9, 1, 5, 5)); // GridLayout con 9 filas, 1 columna y 5 de separación horizontal y vertical
 
         JButton saveButton = new JButton("Guardar");
         saveButton.addActionListener(e -> saveFile());
@@ -44,6 +44,21 @@ public class TextEditor2 {
         JButton clearButton = new JButton("Borrar");
         clearButton.addActionListener(e -> textArea.setText(""));
         buttonPanel.add(clearButton);
+
+        JButton organizeButton = new JButton("Organizar Documentos");
+        organizeButton.addActionListener(e -> organizeDocuments());
+        buttonPanel.add(organizeButton);
+
+        JButton searchButton = new JButton("Búsqueda Eficiente en Textos");
+        searchButton.addActionListener(e -> searchInTexts());
+        buttonPanel.add(searchButton);
+
+        JButton dateButton = new JButton("Gestión de Fechas");
+        dateButton.addActionListener(e -> {
+            VerArchivos verArchivos = new VerArchivos();
+            verArchivos.setVisible(true);
+        });
+        buttonPanel.add(dateButton);
 
         // Añadir un componente de relleno para empujar los botones "Salir" y "Cancelar" hacia la parte inferior
         buttonPanel.add(Box.createVerticalGlue());
@@ -99,5 +114,17 @@ public class TextEditor2 {
         String text = textArea.getText();
         int wordCount = text.trim().isEmpty() ? 0 : text.trim().split("\\s+").length;
         wordCountLabel.setText("Conteo de palabras: " + wordCount);
+    }
+
+    private void organizeDocuments() {
+        // Aquí va el código para organizar alfabéticamente las líneas de un archivo de texto
+    }
+
+    private void searchInTexts() {
+        // Aquí va el código para implementar un sistema de búsqueda de palabras en archivos de texto
+    }
+
+    private void manageDates() {
+        // Aquí va el código para crear un programa que permita a los usuarios introducir y listar fechas de manera ordenada
     }
 }
